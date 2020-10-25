@@ -1,0 +1,87 @@
+html {
+    background-color: rgba(50,50,200,0.2);
+    font-size: 22px;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.details figure {
+    width: 15em;
+    float: left;
+    margin: 1em;
+    text-align: center;
+}
+
+figure img {
+    width: 15em;
+}
+
+main {
+    display: flex;
+    gap: 3em;
+}
+
+header,
+footer {
+    text-align: center;
+}
+
+footer {
+    border-top: 1px dotted black;
+}
+
+footer form {
+    padding: 2em;
+}
+
+header a {
+    float: right;
+    margin-right: 2em;
+}
+
+aside p,
+header .links a {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid rgba(20, 20, 200, 0.7);
+}
+
+header .logo {
+    float: left;
+    margin-left: 2em;
+    width: 6em;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(20, 20, 200, 0.7);
+}
+
+a:active {
+    color: black;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+footer .banner {
+    width: 100%;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.images img {
+    width: 25em;
+    padding: 1em;
+}
+
+.gallery {
+    padding-bottom: 3em;
+}

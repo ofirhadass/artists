@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>search artist</title>
+        <link href="{{ url_for('static', filename='styles.css') }}" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            {% if name %}
+                {% if logo %}
+                    <img class="logo" src={{logo}} alt="{{name}} logo" title="{{name}} logo">
+                 {% endif %}
+                <div class="links">
+                    <a href="/">home</a>
+                </div>
+                <h1>{{name | title}}</h1>
+            {% else %}
+                <h1>search artist</h1>
+            {% endif %}
+        </header>
+        <main>
+            {% if name %}
+                <div class="details">
+                    <a href="/{{name}}/pictures">
+                        <figure>
+                            <img src="{{image}}" alt="{{name | title}}">
+                            <figcaption>click here and see more images</figcaption>
+                        </figure>
+                    </a>
+                    <p>{{description}}</p>
+                </div>
+                <aside>
+                    <h2>Links:</h2>
+                    {% for target, link in links %}
+                        {% if link %}
+                            <p><a href="http://{{link}}" target="_blank">{{target}}</a></p>
+                        {% endif %}
+                    {% endfor %}
+                    <h2>Songs:</h2>
+                    {% for song_name, link in songs %}
+                        <p><a href="{{link}}" target="_blank">{{song_name}}</a></p>
+                    {% endfor %}
+                </aside>
+            {% else %}
+                <p>Welcome to search musicians website! Here you can find information and links about any artist you like. Enjoy :)</p>
+            {% endif %}
+        </main>
+        <footer>
+            <form method="GET" action="/">
+                <input name="artist name" type="search">
+                <label>language:</label>
+                <select name="language" id="language" onchange="search()">
+                    {% for lang, key in languages %}
+                        <option value="{{lang}}">{{lang}}</option>
+                    {% endfor %}
+                </select>
+                <button>search</button>
+            </form>
+            {% if banner %}
+                <img class="banner" src="{{banner}}" alt="{{name}} banner">
+            {% endif %}
+        </footer>
+    </body>
+</html>

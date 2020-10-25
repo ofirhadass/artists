@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}} pictures</title>
+    <link href="{{ url_for('static', filename='styles.css') }}" type="text/css" rel="stylesheet">
+</head>
+    <body>
+        <header>
+            <img class="logo" src={{logo}} alt="{{name}} logo" title="{{name}} logo">
+            <div class="links">
+                <a href="/">home</a>
+                <a href="/?artist+name={{name}}">back</a>
+            </div>
+            <h1>{{name | title}} images</h1>
+        </header>
+        <main class="gallery">
+            <div class="images">
+                {% for image in images %}
+                    <img src="{{image}}" alt="{{name}} image">
+                {% endfor %}
+            </div>
+        </main>
+        <footer>
+            {% if banner %}
+                <img class="banner" src="{{banner}}" alt="{{name}} banner">
+            {% endif %}
+        </footer>
+    </body>
+</html>

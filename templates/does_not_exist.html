@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>artist doesn't exist</title>
+    <link href="{{ url_for('static', filename='styles.css') }}" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <p>The artist {{name}} does not exist in our system. You can <a href="/">go home</a> or search another artist here:</p>
+    <form method="GET" action="/">
+        <input name="artist name" type="search">
+        <label>language:</label>
+            <select name="language" id="language" onchange="search()">
+                {% for lang, key in languages %}
+                    <option value="{{lang}}">{{lang}}</option>
+                {% endfor %}
+            </select>
+        <button>search</button>
+    </form>
+</body>
+</html>
